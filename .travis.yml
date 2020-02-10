@@ -1,7 +1,5 @@
 sudo: required
-services:
-    - docker
-    
+
 deploy:
     edge: true
     provider: elasticbeanstalk
