@@ -1,20 +1,15 @@
 sudo: required
 services:
     - docker
- 
-before-install:
-    - docker build -t myimage -f Dockerfile.dev .
- 
-script:
-    - docker run myimage npm run test -- --coverage
-
+    
 deploy:
+    edge: true
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "Test"
     env: "Test-env"
-    bucket-name: "elasticbeanstalk-us-east-2-596456414597"
-    bucket-path: "Test"
+    bucket_name: "elasticbeanstalk-us-east-2-596456414597"
+    bucket_path: "Test"
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
